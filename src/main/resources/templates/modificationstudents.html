@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un Étudiant</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a69bd;
+            margin-bottom: 20px;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus {
+            border-color: #4a69bd;
+            outline: none;
+            box-shadow: 0 0 5px rgba(74, 105, 189, 0.5);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background-color: #4a69bd;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #375a96;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Modifier un Étudiant</h1>
+    <form th:object="${student}" th:action="@{/students/update}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div>
+            <label for="firstName">Prénom :</label>
+            <input type="text" id="firstName" th:field="*{firstName}" required>
+        </div>
+        <div>
+            <label for="lastName">Nom :</label>
+            <input type="text" id="lastName" th:field="*{lastName}" required>
+        </div>
+        <div>
+            <label for="age">Âge :</label>
+            <input type="number" id="age" th:field="*{age}" required>
+        </div>
+        <div>
+            <label for="phone">Téléphone :</label>
+            <input type="text" id="phone" th:field="*{phone}" required>
+        </div>
+        <button type="submit">Mettre à jour</button>
+    </form>
+</div>
+</body>
+</html>
