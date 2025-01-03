@@ -22,8 +22,5 @@ public class Student {
      @Getter @Setter
      private Integer age;
      @Getter @Setter
-     private String phone;
-
-
-     
+     private String phone;    
 }

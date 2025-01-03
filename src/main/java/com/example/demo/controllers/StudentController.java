@@ -26,7 +26,7 @@ public class StudentController {
     @PostMapping("/index")
     public String saveStudent(@ModelAttribute("student") Student student, RedirectAttributes redirect) {
         studentsService.saveStudent(student); // Sauvegarde l'étudiant, création ou mise à jour
-       // redirect.addFlashAttribute("message", "Étudiant enregistré avec succès !");
+        // redirect.addFlashAttribute("message", "Étudiant enregistré avec succès !");
         return "redirect:/students"; // Redirige vers la liste des étudiants
     }
 
